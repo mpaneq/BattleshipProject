@@ -29,8 +29,6 @@ public class StatePanel extends Rectangle {
         reset();
     }
 
-//    public StatePanel(Placement placement, int width, int height) {
-//    }
 
     public void reset() {
         topLine = shipBeingPlacedLine1;

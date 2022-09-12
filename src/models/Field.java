@@ -8,8 +8,7 @@ public class Field extends Rectangle {
     private final int PADDING = 3;
     private boolean showMarker;
     private Ship shipAtMarker;
-
-    int value = 0;
+    public int value = 0;
 
     public Field(int x, int y, int width, int height) {
         super(x, y, width, height);

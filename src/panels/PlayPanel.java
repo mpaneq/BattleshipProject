@@ -9,10 +9,9 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class PlayPanel extends JPanel implements MouseListener, MouseMotionListener, KeyListener {
-    Board player;
-    Board opponent;
-    SettingsParams settingsParams;
-
+    private Board player;
+    private Board opponent;
+    private SettingsParams settingsParams;
     public enum GameState { shipBeingPlaceds, FiringShots, GameOver }
     private StatePanel statePanel;
     private Computer ComputerController;
@@ -21,6 +20,7 @@ public class PlayPanel extends JPanel implements MouseListener, MouseMotionListe
     private int shipBeingPlacedIndex;
     private GameState gameState;
     private int movesCounter;
+
     PlayPanel(SettingsParams settingsParams) {
         this.settingsParams = settingsParams;
         createComponents();
@@ -141,9 +141,17 @@ public class PlayPanel extends JPanel implements MouseListener, MouseMotionListe
         }
         movesCounter++;
     }
-    private Placement getTarget(Placement mousePlacement){ return opponent.getPositionInGrid(mousePlacement.x, mousePlacement.y); }
-    private void doOpponentTurns(){ for(int i = 0 ; i < settingsParams.getMoves() ; i++) { doComputerTurn(); } }
-    private boolean isOpponentTurn() { return (!opponent.areAllShipsDestroyed() && (movesCounter % settingsParams.getMoves()== 0)); }
+    private Placement getTarget(Placement mousePlacement){
+        return opponent.getPositionInGrid(mousePlacement.x, mousePlacement.y);
+    }
+
+    private void doOpponentTurns(){
+        for(int i = 0 ; i < settingsParams.getMoves() ; i++) { doComputerTurn(); }
+
+    }
+    private boolean isOpponentTurn() {
+        return (!opponent.areAllShipsDestroyed() && (movesCounter % settingsParams.getMoves()== 0));
+    }
 
     private void doPlayerTurn(Placement targetPlacement) {
         opponent.markPosition(targetPlacement);
