@@ -3,7 +3,7 @@ package params;
 public class SettingsParams {
 
     public int mapWidth;
-    int moves;
+    public int moves;
     public int battleshipCount;
     public int battleshipPunctation;
     public int cruiserCount;
